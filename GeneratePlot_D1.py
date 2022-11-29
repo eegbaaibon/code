@@ -7,9 +7,9 @@ import numpy as np
 def getTreatment(treatmentID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
     cursor = conn.cursor()
     select = ''' 
@@ -26,9 +26,9 @@ def getTreatment(treatmentID):
 def QueryAllUnits(datatypeID, treatmentID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
     rows = []
 
@@ -61,9 +61,9 @@ def QueryAllUnits(datatypeID, treatmentID):
 def QueryUnit(experimentalunitID, datatypeID, treatmentID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
 
     cursor = conn.cursor()

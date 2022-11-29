@@ -52,7 +52,7 @@ def insertStaticData(db_name, db_user, db_password):
 
     cursor = conn.cursor()
 
-    insert = "INSERT INTO researcherhub (Source, timestamp, Forename, Surname) VALUES ('" + hashed_user + "', current_timestamp, 'Zac', 'Webb');"
+    insert = "INSERT INTO researcherhub (Source, timestamp, Forename, Surname) VALUES ('" + hashed_user + "', current_timestamp, 'Elizabeth', 'Murphy');"
     insertStatement(insert, conn, cursor)
 
     insert = "INSERT INTO affiliation (ResearcherID, Source, timestamp, Affiliation) VALUES (2,'" + hashed_user + "', current_timestamp, 'University of Birmingham');"

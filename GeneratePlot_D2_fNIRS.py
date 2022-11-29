@@ -8,9 +8,9 @@ import numpy as np
 def getTreatment(treatmentID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
     cursor = conn.cursor()
     select = ''' 

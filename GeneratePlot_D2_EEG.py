@@ -26,9 +26,9 @@ def getTreatment(treatmentID):
 def QueryUnit(experimentalunitID, sessionID, datasourceID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
     print(experimentalunitID, sessionID, datasourceID)
     cursor = conn.cursor()

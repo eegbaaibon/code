@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Nov  27 02:22:18 2022
-
-@author: Adegbe Francis
 """
 
 import CreateDB
@@ -16,7 +14,7 @@ import populate_D2_EEG
 def main():
     """Builds and populates the database."""
     
-    db_user, db_password = "smd","smd2022"
+    db_user, db_password = "postgres","12345"
     db_name = "smdvault"
 
     CreateDB.createDB(db_name, db_user, db_password)

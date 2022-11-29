@@ -120,7 +120,7 @@ def func(n_clicks, experimentalunitID, datatypeID, treatmentChoice):
             return nothing
 
         else:
-            DT =["Deoxy","Oxy","Total","MES"]
+            DT =["Deoxy","Oxy","Probe1","MES"]
             T = ["Moto", "Rest", "ViMo", "ViSo"]
 
             treatmentid_s = np.arange(1, 17)

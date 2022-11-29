@@ -2,7 +2,7 @@
 """
 Created on Sat Nov  27 02:22:18 2022
 
-@author: Adegbe Francis
+
 """
 
 import ReadFiles_D1

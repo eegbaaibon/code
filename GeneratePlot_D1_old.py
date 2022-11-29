@@ -43,9 +43,9 @@ def QueryAllUnits(datatypeID, treatmentID):
 def QueryUnit(experimentalunitID, datatypeID, treatmentID):
     conn = connect(
         dbname='smdvault',
-        user='smd',
+        user='postgres',
         host="localhost",
-        password='smd2022')
+        password='12345')
 
 
     cursor = conn.cursor()

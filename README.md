@@ -1,4 +1,4 @@
-# Datavault project
+# Datavault project by Egbaaibon Elizabeth (2424921)
 Version correct to 26/11/2022 02:00
 
 # Table of contents
@@ -23,7 +23,7 @@ The following content is instructions to execute the python scripts for this pro
 
 To create the database, the user MUST execute the follwing commands in the PostgreSQL shell. (PostgreSQL is available at https://www.postgresql.org/download/)
 
-`CREATE USER 'smd' WITH PASSWORD 'smd2022' CREATEDB;` where the username and password are the choice of the user.
+`CREATE USER 'postgres' WITH PASSWORD '12345' CREATEDB;` where the username and password are the choice of the user.
 
 `CREATE DATABASE smdvault;`
 
@@ -43,6 +43,7 @@ Required packages for this project:
 - numpy
 - plotly
 - Metasploit
+- Mat73
 
 Please use `pip install <package name>` in your Python environment.
 
@@ -68,6 +69,8 @@ To run the data marts, just run any of the following scripts:
 
 
 ## Understanding the data marts <a name="explanation"></a>
+An information mart layer for basic data analytics. The vault is being capable of rudimentary
+database querying, aggregation and visualization
 
 ### Dataset 1 <a name="datamart1"></a>
 

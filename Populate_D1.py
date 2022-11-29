@@ -47,7 +47,7 @@ def InsertStaticData(db_name, db_user, db_password):
 
     cursor = conn.cursor()
 
-    insert = "INSERT INTO researcherhub (Source, timestamp, Forename, Surname) VALUES ('" + hashed_user + "', current_timestamp, 'Matthew', 'Benyon');"
+    insert = "INSERT INTO researcherhub (Source, timestamp, Forename, Surname) VALUES ('" + hashed_user + "', current_timestamp, 'Francis', 'Adegbe');"
     insertStatement(insert, conn, cursor)
 
     insert = "INSERT INTO affiliation (ResearcherID, Source, timestamp, Affiliation) VALUES (1,'" + hashed_user + "', current_timestamp, 'University of Birmingham');"
@@ -71,7 +71,7 @@ def InsertStaticData(db_name, db_user, db_password):
     insertStatement(insert, conn, cursor)
     insert = "INSERT INTO DataType (Source, timestamp, Name) VALUES ('" + hashed_user + "', current_timestamp, 'Deoxy');"  # update description
     insertStatement(insert, conn, cursor)
-    insert = "INSERT INTO DataType (Source, timestamp, Name) VALUES ('" + hashed_user + "', current_timestamp, 'Total');"  # update description
+    insert = "INSERT INTO DataType (Source, timestamp, Name) VALUES ('" + hashed_user + "', current_timestamp, 'Probe1');"  # update description
     insertStatement(insert, conn, cursor)
     insert = "INSERT INTO DataType (Source, timestamp, Name) VALUES ('" + hashed_user + "', current_timestamp, 'MES');"  # update description
     insertStatement(insert, conn, cursor)
