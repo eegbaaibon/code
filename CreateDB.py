@@ -4,7 +4,7 @@ from psycopg2 import connect
 
 
 def createDB(db_name, db_user,db_password):
-    """Reads commands from smdvault.txt to build the data vault."""
+    """Reads commands from DataVaultV4.txt to build the data vault."""
     
     try:
 

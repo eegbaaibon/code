@@ -2,7 +2,7 @@
 """
 Created on Sat Nov  27 02:22:18 2022
 
-@author: Adegbe Francis
+
 """
 
 import ReadFiles_D1
@@ -78,7 +78,7 @@ def InsertStaticData(db_name, db_user, db_password):
 
     for i in range(10):
         insert = "INSERT INTO ExperimentalUnitHUB (ExperimentalUnitID, Source, timestamp) VALUES (%s, '" + hashed_user + "', current_timestamp);"
-        cursor.execute(insert, [i+1])
+        cursor.execute(insert, [i + 1])
         conn.commit()
 
 
@@ -99,7 +99,6 @@ def InsertData(filepath, db_name, db_user, db_password, experimentalunitnumber, 
     row_count = len(expData.index)
 
     for i in range(row_count):
-
         acquisition_time = expData.loc[i].to_list()[-4]
 
         row = expData.loc[i].to_list()
@@ -107,21 +106,17 @@ def InsertData(filepath, db_name, db_user, db_password, experimentalunitnumber, 
         row = [str(x) for x in row]
 
         row = ",".join(row)
-        row = "{"+row+"}"
+        row = "{" + row + "}"
 
         insert = "INSERT INTO EndpointHUB (Source, timestamp, ObservedValue, Acquistiontimestamp) VALUES (%s, current_timestamp, %s, %s);"  # update description
         cursor.execute(insert, (hashed_user, row, acquisition_time))
         conn.commit()
 
-
     MetaData = MetaData.replace("'", '"')
     insert = "INSERT INTO TreatmentHUB (Source, timestamp, Metadata) VALUES ('" + hashed_user + "', current_timestamp,'" + MetaData + "');"  # may want to add treatment description
     insertStatement(insert, conn, cursor)
 
-
     for i in range(row_count):
-
-
         insert = "INSERT INTO ObservesLINK (Source, timestamp, ExperimentID, EndpointID) VALUES ('" + hashed_user + "', current_timestamp, 1 , %s);"
         cursor.execute(insert, [endpointnumber])
         conn.commit()
@@ -144,7 +139,6 @@ def InsertData(filepath, db_name, db_user, db_password, experimentalunitnumber, 
 
         endpointnumber += 1
 
-
     cursor.close()
 
     return endpointnumber, treatmentnumber
@@ -156,23 +150,22 @@ def PopulateVault(db_name, db_user, db_password):
     InsertStaticData(db_name, db_user, db_password)
 
     filepaths = getFilePaths()
-    experimentalunitnumber = 0 # this has to start from 0 then be updated before calling function as 0 mod 16 is 0
+    experimentalunitnumber = 0  # this has to start from 0 then be updated before calling function as 0 mod 16 is 0
     groupnumber = 0
-    datatypenumber= 0
+    datatypenumber = 0
     endpointnumber = 1
     treatmentnumber = 1
 
-    filepath_length = len(filepaths) #CHANGE THIS WHEN NEEDED!
-    #filepath_length = 1
-
+    filepath_length = len(filepaths)  # CHANGE THIS WHEN NEEDED!
+    # filepath_length = 1
 
     for i in range(filepath_length):
         if (i % 16) == 0:
             experimentalunitnumber += 1
         if (i % 4) == 0:
             datatypenumber = 1
-        print("\nUploading", i+1, "of", filepath_length, "...")
-        #print(groupnumber, datatypenumber, treatmentnumber)
+        print("\nUploading", i + 1, "of", filepath_length, "...")
+        # print(groupnumber, datatypenumber, treatmentnumber)
         endointnumber_temp, treatmentnumber = InsertData(filepaths[i], db_name, db_user, db_password,
                                                          experimentalunitnumber,
                                                          endpointnumber, treatmentnumber, datatypenumber)
@@ -180,9 +173,3 @@ def PopulateVault(db_name, db_user, db_password):
         endpointnumber = endointnumber_temp
         datatypenumber += 1
         treatmentnumber += 1
-
-
-
-
-
-

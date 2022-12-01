@@ -37,7 +37,7 @@ app.layout = html.Div([
                  options=[
                      {"label": "Deoxy", "value": 1},
                      {"label": "Oxy", "value": 2},
-                     {"label": "Total", "value": 3},
+                     {"label": "Probe1", "value": 3},
                      {"label": "MES", "value": 4},
                  ],
                  multi=False,
